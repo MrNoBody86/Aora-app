@@ -227,3 +227,19 @@ export const createVideo = async (form) => {
     throw new Error(error);
   }
 }
+
+export async function getLikedPost (userId) {
+  try {
+    const posts = await databases.listDocuments(
+      config.databaseId,
+      config.videoCollectionId,
+      [Query.equal('creator', userId), Query.orderDesc('$createdAt')]
+    );
+
+    if (!posts) throw new Error("Something went wrong");
+
+    return posts.documents;
+  } catch (error) {
+    throw new Error(error);
+  }
+}

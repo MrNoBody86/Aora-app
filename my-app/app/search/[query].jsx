@@ -45,7 +45,7 @@ const Search = () => {
             </Text>
 
             <View className="mt-6 mb-8">
-              <SearchInput initialQuery={query}/>
+              <SearchInput initialQuery={query} placeholdertext= "Search for a video topic"/>
             </View>
           </View>
         )}
@@ -53,6 +53,9 @@ const Search = () => {
           <EmptyState
             title="No Videos Found"
             subtitle="No videos found for this search query"
+            buttontitle="Create video"
+            buttonlinkedpage='/create'
+            
           />
         )}
       />

@@ -13,7 +13,7 @@ import useAppwrite from '../../lib/useAppwrite'
 import { useGlobalContext } from '../../context/GlobalProvider'
 
 const Home = () => {
-  const { user, setUser, setIsLoggedIn } = useGlobalContext()
+  const { user } = useGlobalContext()
   const { data : posts , refetch } = useAppwrite(getAllPosts);
   const { data : latestPosts  } = useAppwrite(getLatestPosts);
 
@@ -59,7 +59,7 @@ const Home = () => {
               </View>
             </View>
 
-            <SearchInput />
+            <SearchInput placeholdertext= "Search for a video topic"/>
 
             <View className="w-full flex-1 pt-5 pb-8">
               <Text className="text-gray-100 text-lg font-pregular mb-3">
@@ -73,6 +73,8 @@ const Home = () => {
           <EmptyState
             title="No Videos Found"
             subtitle="Be the first one to upload a video"
+            buttontitle="Create video"
+            buttonlinkedpage='/create'
           />
         )}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}

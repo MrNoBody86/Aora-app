@@ -87,6 +87,8 @@ const Profile = () => {
           <EmptyState
             title="No Videos Found"
             subtitle="No videos found for this search query"
+            buttontitle="Create video"
+            buttonlinkedpage='/create'
           />
         )}
       />

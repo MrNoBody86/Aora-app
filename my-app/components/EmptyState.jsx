@@ -1,11 +1,10 @@
 import { View, Text, Image } from 'react-native'
 import React from 'react'
-
+import { router } from 'expo-router'
 import { images } from '../constants'
+import CustomButton from './CustomButton'
 
-import CustomBotton from './CustomButton'
-
-const EmptyState = ({title,subtitle}) => {
+const EmptyState = ({title,subtitle,buttontitle,buttonlinkedpage}) => {
   return (
     <View className="justify-center items-center px-4">
         <Image
@@ -20,9 +19,9 @@ const EmptyState = ({title,subtitle}) => {
             {subtitle}
         </Text>
        
-       <CustomBotton
-        title="Create  video"
-        handlePress={() => ReadableStreamDefaultController.push('/create')}
+       <CustomButton
+        title={buttontitle}
+        handlePress={() => router.push(buttonlinkedpage)}
         containerStyles="w-full my-5"
        />
     </View>

@@ -6,6 +6,9 @@ import { icons } from "../constants";
 
 const VideoCard = ({ title, creator, avatar, thumbnail, video }) => {
   const [play, setPlay] = useState(false);
+  const [menuStatus, setMenuStatus] = useState(false);
+
+  
 
   return (
     <View className="flex flex-col items-center px-4 mb-14">
@@ -35,9 +38,30 @@ const VideoCard = ({ title, creator, avatar, thumbnail, video }) => {
           </View>
         </View>
 
-        <View className="pt-2">
-          <Image source={icons.menu} className="w-5 h-5" resizeMode="contain" />
-        </View>
+        {menuStatus ? (
+          <View>
+            <TouchableOpacity 
+              className="pt-2"
+              onPress={() => setMenuStatus(false)}
+            >
+              <Image source={icons.menu} className="w-5 h-5" resizeMode="contain" />
+            </TouchableOpacity>
+
+            <View className="w-16 h-16 bg-black-100 rounded-2xl">
+
+            </View>
+          </View>  
+
+        ) : (
+              <TouchableOpacity 
+                className="pt-2"
+                onPress={() => setMenuStatus(true)}
+              >
+                <Image source={icons.menu} className="w-5 h-5" resizeMode="contain" />
+              </TouchableOpacity>
+        )}
+
+        
       </View>
 
       {play ? (
