@@ -228,6 +228,14 @@ export const createVideo = async (form) => {
   }
 }
 
+export async function likePosts (userId) {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
+
 export async function getLikedPost (userId) {
   try {
     const posts = await databases.listDocuments(
